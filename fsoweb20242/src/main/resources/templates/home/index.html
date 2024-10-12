@@ -1,15 +1,44 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
-    <head th:include="layout :: htmlhead"></head>
-    <body>
-        
-        <nav th:replace="layout :: menu">(menu)</nav>
-        <main class="container">
-            <h1>qq coisa</h1>
-        </main>
-        
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
+  <head th:include="layout :: htmlhead">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistema GLPI</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+  </head>
+  <body>
+    <!-- Barra de navegação -->
+    <nav
+      th:replace="layout :: menu"
+      class="navbar navbar-expand-lg navbar-light bg-light"
+    >
+      (menu)
+    </nav>
 
+    <!-- Conteúdo principal -->
+    <main class="container mt-4">
+      <div class="jumbotron">
+        <h1 class="display-4">Bem-vindo ao Sistema GLPI</h1>
+        <p class="lead">
+          Esta é uma interface simples para gerenciar ativos de TI, chamados e
+          muito mais.
+        </p>
+        <hr class="my-4" />
+        <p>
+          Gerencie usuários, acompanhe problemas e otimize seus serviços de TI.
+        </p>
+        <a class="btn btn-primary btn-lg" href="#" role="button">Saiba mais</a>
+      </div>
+    </main>
 
-        <div th:include="layout :: footer">(footer)</div>
-    </body>
+    <!-- Rodapé -->
+    <footer
+      th:include="layout :: footer"
+      class="bg-light text-center text-lg-start mt-auto py-3"
+    >
+      (rodapé)
+    </footer>
+
+    <script th:src="@{/js/main.js}"></script>
+  </body>
 </html>
