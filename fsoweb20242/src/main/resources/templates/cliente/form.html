@@ -22,6 +22,15 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="txtcidade">Cidade</label>
+                    <select class="form-select" 
+                        th:field="*{cidade}">
+                        <option th:each="cidade : ${listaCidades}"
+                            th:value="${cidade.id}"
+                            th:text="${cidade.nome}"></option>
+                </div>
+
+                <div class="form-group">
                     <label for="txtendereco">Endereço</label>
                     <input id="txtendereco"
                         th:field="*{endereco}"
