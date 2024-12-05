@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia de Como Usar o Sistema - Ortho Bucal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f0f2f5;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .guide-container {
+            background: #ffffff;
+            max-width: 800px;
+            width: 100%;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .step {
+            margin-bottom: 2rem;
+        }
+
+        .step-title {
+            font-size: 1.5rem;
+            color: #4a90e2;
+            margin: 1rem 0;
+        }
+
+        .step-description {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .navigation {
+            margin-top: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: #4a90e2;
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background-color: #3a7cc0;
+        }
+
+        .btn-secondary {
+            background-color: #ccc;
+            color: #333;
+        }
+
+        .btn-secondary:hover {
+            background-color: #b3b3b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="guide-container">
+        <!-- Passo 1 -->
+        <div class="step" id="step1">
+            <h2 class="step-title">Passo 1: Tela Inicial</h2>
+            <p class="step-description">Na tela inicial do sistema, você é recebido com um resumo das funcionalidades disponíveis, incluindo links para acessar o gerenciamento de clientes, agendamentos e preços de consultas. Utilize o botão "Saiba mais" para explorar mais informações.</p>
+        </div>
+
+        <!-- Passo 2 -->
+        <div class="step" id="step2">
+            <h2 class="step-title">Passo 2: Gerenciar Clientes</h2>
+            <p class="step-description">Na tela de clientes, você pode visualizar uma lista dos clientes registrados, adicionar novos clientes, ou editar e remover clientes existentes utilizando os botões "Alterar" e "Excluir".</p>
+        </div>
+
+        <!-- Passo 3 -->
+        <div class="step" id="step3">
+            <h2 class="step-title">Passo 3: Produtos e Serviços</h2>
+            <p class="step-description">Na tela de produtos e serviços, é possível visualizar os procedimentos disponíveis, como tratamentos odontológicos e limpezas, junto com seus respectivos preços. Você também pode adicionar novos serviços ou editar e excluir os já existentes.</p>
+        </div>
+
+        <!-- Passo 4 -->
+        <div class="step" id="step4">
+            <h2 class="step-title">Passo 4: Gerenciamento de Pedidos</h2>
+            <p class="step-description">Na tela de pedidos, você pode visualizar as consultas já agendadas, os valores associados e realizar ações como alterar ou excluir pedidos conforme necessário.</p>
+        </div>
+
+        <!-- Navegação -->
+        <div class="navigation">
+            <button class="btn btn-secondary" id="prevBtn" onclick="changeStep(-1)">Anterior</button>
+            <button class="btn btn-primary" id="nextBtn" onclick="changeStep(1)">Próximo</button>
+        </div>
+    </div>
+
+    <script>
+        let currentStep = 1;
+
+        function changeStep(step) {
+            const totalSteps = 4;
+            const currentElement = document.getElementById(`step${currentStep}`);
+            currentElement.style.display = "none";
+
+            currentStep += step;
+
+            if (currentStep < 1) currentStep = 1;
+            if (currentStep > totalSteps) currentStep = totalSteps;
+
+            const nextElement = document.getElementById(`step${currentStep}`);
+            nextElement.style.display = "block";
+
+            document.getElementById("prevBtn").style.display = currentStep === 1 ? "none" : "inline-block";
+            document.getElementById("nextBtn").style.display = currentStep === totalSteps ? "none" : "inline-block";
+        }
+
+        // Esconde todos os passos menos o primeiro
+        for (let i = 2; i <= 4; i++) {
+            document.getElementById(`step${i}`).style.display = "none";
+        }
+
+        // Esconde o botão "Anterior" na primeira etapa
+        document.getElementById("prevBtn").style.display = "none";
+    </script>
+</body>
+</html>

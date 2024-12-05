@@ -1,16 +1,21 @@
 package br.univille.fsoweb20242.controller;
 
+import java.nio.file.AccessDeniedException;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import br.univille.fsoweb20242.entity.Cidade;
 import br.univille.fsoweb20242.entity.Cliente;
 import br.univille.fsoweb20242.repository.ClienteRepository;
 import br.univille.fsoweb20242.service.CidadeService;
@@ -38,7 +43,9 @@ public class ClienteController {
     public ModelAndView novo(){
         var cliente = new Cliente();
         var listaCidades = cidadeService.getAll();
-
+        // List<Cidade> listaCidades = Arrays.asList(
+        //     new Cidade(1, "Joinville", "SC")
+        // );
         HashMap<String,Object> dados = new HashMap<>();
         dados.put("cliente",cliente);
         dados.put("listaCidades",listaCidades);
@@ -76,5 +83,8 @@ public class ClienteController {
         return new ModelAndView("redirect:/clientes");
     }
 
-
+    @ExceptionHandler(AccessDeniedException.class)
+    public ModelAndView handle404Exception(AccessDeniedException ex) {
+        return new ModelAndView("erro/403");
+    }
 }

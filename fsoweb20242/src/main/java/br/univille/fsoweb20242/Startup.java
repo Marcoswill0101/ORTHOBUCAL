@@ -6,17 +6,20 @@ import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
 import br.univille.fsoweb20242.entity.Cidade;
+import br.univille.fsoweb20242.entity.Produto;
 import br.univille.fsoweb20242.service.CidadeService;
-import io.micrometer.observation.Observation.Context;
+import br.univille.fsoweb20242.service.ProdutoService;
 
 @Component
-public class startaup {
-  @Autowired
-  private CidadeService serviceCidade;
+public class Startup {
 
-  @EventListener
-  public void onApplicationEvent(ContextRefreshedEvent event) {
-    var cidade = new Cidade();
-    serviceCidade.save(cidade);
-  }
+    @Autowired
+    private CidadeService serviceCidade;
+    @Autowired
+    private ProdutoService serviceProduto;
+
+    @EventListener
+    public void onApplicationEvent(ContextRefreshedEvent event){
+
+    }   
 }

@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    background-color: #f8f9fa;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .navbar {
+    background-color: #007bff;
+    padding: 1rem;
+    color: white;
+  }
+  
+  .navbar a {
+    color: white;
+    text-decoration: none;
+    margin-right: 1rem;
+  }
+  
+  .navbar a:hover {
+    text-decoration: underline;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .jumbotron {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .jumbotron h1 {
+    font-size: 2.5rem;
+    color: #007bff;
+    margin-bottom: 1rem;
+  }
+  
+  .jumbotron p.lead {
+    font-size: 1.2rem;
+    color: #555;
+  }
+  
+  .jumbotron .btn {
+    background-color: #007bff;
+    color: white;
+    padding: 0.8rem 1.2rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .jumbotron .btn:hover {
+    background-color: #0056b3;
+  }
+  
+  footer {
+    background-color: #e9ecef;
+    color: #6c757d;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: auto;
+    border-top: 1px solid #ddd;
+  }
+  
+  footer a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  footer a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .jumbotron h1 {
+      font-size: 2rem;
+    }
+  
+    .jumbotron p.lead {
+      font-size: 1rem;
+    }
+  
+    .jumbotron .btn {
+      font-size: 0.9rem;
+      padding: 0.7rem 1rem;
+    }
+  }
+  

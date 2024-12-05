@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
+  <head th:include="layout :: htmlhead">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Ortho Bucal</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+  </head>
+  <body class="d-flex flex-column min-vh-100">
+    <!-- Conteúdo principal -->
+    <main class="container d-flex justify-content-center align-items-center flex-grow-1">
+      <div class="card shadow p-4" style="max-width: 400px; width: 100%;">
+        <div class="text-center mb-4">
+          <h2 class="h4">Bem-vindo ao Ortho Bucal</h2>
+          <p class="text-muted">Faça login para continuar</p>
+        </div>
+        
+        <form th:action="@{/login}" method="post">
+          <!-- Campo de usuário -->
+          <div class="mb-3">
+            <label for="username" class="form-label">Usuário</label>
+            <input
+              type="text"
+              class="form-control"
+              id="username"
+              name="username"
+              placeholder="Digite seu usuário"
+              required
+            />
+          </div>
+
+          <!-- Campo de senha -->
+          <div class="mb-3">
+            <label for="password" class="form-label">Senha</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              name="password"
+              placeholder="Digite sua senha"
+              required
+            />
+          </div>
+
+          <!-- Botão de login -->
+          <div class="d-grid">
+            <a href="/" type="submit" class="btn btn-primary">Entrar</a>
+          </div>
+        </form>
+
+        <!-- Link de esqueci a senha -->
+        <div class="text-center mt-3">
+          <a th:href="@{/recuperar-senha}" class="text-decoration-none">Esqueci minha senha</a>
+        </div>
+      </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer
+      th:include="layout :: footer"
+      class="bg-light text-center text-lg-start mt-auto py-3"
+    >
+      (rodapé)
+    </footer>
+
+    <script th:src="@{/js/main.js}"></script>
+  </body>
+</html>

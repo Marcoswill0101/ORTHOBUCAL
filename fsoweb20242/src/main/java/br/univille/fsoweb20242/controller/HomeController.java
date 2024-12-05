@@ -17,4 +17,20 @@ public class HomeController {
 
         return new ModelAndView("home/index","apelido",mensagem);
     }
+
+    @GetMapping("/login")
+    public ModelAndView login(){
+        var mensagem = "";
+        return new ModelAndView("login/index","apelido",mensagem);
+    }
+
+    @Controller
+    public class GuiaController {
+    
+        @GetMapping("/guia")
+        public ModelAndView guia() {
+            var mensagem = ""; // Mensagem que você quiser passar para a página, pode ser alterado conforme necessário
+            return new ModelAndView("manual/index", "apelido", mensagem);
+        }
+    }
 }
